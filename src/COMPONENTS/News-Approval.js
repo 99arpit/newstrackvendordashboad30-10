@@ -195,7 +195,7 @@ const NewsApproval = () => {
       const utc =
         60 * Number(time.slice(0, 2)) + Number(time.slice(3, 5)) + 330;
       const gmtMin = utc % 60;
-      const gmtHour = Math.floor(utc / 60);
+      const gmtHour = Math.floor(utc / 60);  
 
       return `${zeroAppend(gmtHour)}:${zeroAppend(gmtMin)}`;
     } else return time;
@@ -304,8 +304,11 @@ const NewsApproval = () => {
                           <button
                             type="submit"
                             onClick={(event) =>
+                            {
+                              window.alert("Are you sure you want to approve this news?");
+
                               handleReject(event, item._id, remark)
-                            }
+                            }}
                           >
                             Reject
                           </button>
@@ -498,9 +501,19 @@ const NewsApproval = () => {
                           />
                           <button
                             type="submit"
-                            onClick={(event) =>
+                           
+
+
+
+
+                            onClick={(event) => {
+                              window.alert("Are you sure you want to reject this item?");
+
                               handleReject(event, item._id, remark)
-                            }
+                             } }
+
+
+
                           >
                             Reject
                           </button>
@@ -529,14 +542,15 @@ const NewsApproval = () => {
                           </span>
                           <span
                             className="pointer"
-                            onClick={(event) =>
+                            onClick={(event) =>{
+                              window.alert("Are you sure you want to approve this news?");
                               handleApprove(
                                 event,
                                 item._id,
                                 schedule_date,
                                 schedule_time
                               )
-                            }
+                            }}
                           >
                             <TiTick />
                           </span>
@@ -614,7 +628,7 @@ const NewsApproval = () => {
                       <p style={{fontFamily:'Rooboto'}}>{item.schedule_time}</p>
                     </td>
                     <td style={{fontFamily:'Rooboto'}}>{item.author_name}</td>
-                    <td style={{fontFamily:'Rooboto'}}>Approved By</td>
+                    <td style={{fontFamily:'Rooboto'}}>{item.approved_by}</td>
                     {/* <td>{item.username}</td> */}
 
 
@@ -631,9 +645,11 @@ const NewsApproval = () => {
                           />
                           <button
                             type="submit"
-                            onClick={(event) =>
+                            onClick={(event) => {
+                              window.alert("Are you sure you want to reject this item?");
+
                               handleReject(event, item._id, remark)
-                            }
+                             } }
                           >
                             Reject
                           </button>
@@ -675,30 +691,6 @@ const NewsApproval = () => {
 
             <tfoot></tfoot>
           </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -749,7 +741,7 @@ const NewsApproval = () => {
                       <p style={{fontFamily:'Rooboto'}}>{utcToGmt(item.updatedAt.slice(11, 16))}</p>
                     </td>
                     <td style={{fontFamily:'Rooboto'}}>{item.author_name}</td>
-                    <td style={{fontFamily:'Rooboto'}}>Rejected By</td>
+                    <td style={{fontFamily:'Rooboto'}}>{item.approved_by}</td>
                     <td style={{fontFamily:'Rooboto'}}>{item.remark}</td>
                     {/* <td>{item.username}</td> */}
 

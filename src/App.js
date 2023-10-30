@@ -18,6 +18,9 @@ import CreateAd from "./COMPONENTS/CreateAd";
 import Profile from "./COMPONENTS/Profile";
 import UpdateCategories from "./COMPONENTS/UpdateCategories";
 import Advertisementlist from "./COMPONENTS/Advertisementlist";
+import EpaperVendorList from "./COMPONENTS/EpaperVendorList";
+import UpdateAddList from "./COMPONENTS/UpdateAddList";
+
 
 const App = () => {
   return (
@@ -39,6 +42,9 @@ const App = () => {
         <Route path="/EpaperPreview" element={<EpaperPreview />} />
         <Route path="/TemplateSelection" element={<TemplateSelection />} />
         <Route path="/Advertisementlist" element={<Advertisementlist />} />
+        <Route path="/epapervendorlist" element={<EpaperVendorList />} />
+        <Route path="/updateaddlist" element={<UpdateAddList />} />
+
       </Routes>
     </BrowserRouter>
   );

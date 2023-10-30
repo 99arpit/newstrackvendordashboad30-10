@@ -545,23 +545,24 @@ const Addnewsarticle = () => {
     getTags();
   }, []);
 
-  const [style, setStyle] = useState("navbarbox");
+  const [style, setStyle] = useState("main-menu");
 
   const changeStyle = () => {
     setStyle((prev) => {
-      if (prev === "navbarbox") {
-        setStyle("navbarbox2");
-      } else setStyle("navbarbox");
+      if (prev === 'main-menu') {
+        setStyle('main-menu-1')
+      } else setStyle('main-menu')
     });
   };
+  
 
   // console.log(values.tags)
 
   return (
     <>
-      <div className={style}>
-        <Navbar />
-      </div>
+     <nav className={style}>
+          <Navbar />
+        </nav>
       <div className="parentContainer ">
         <h1 className="bg-red">
           <div className="dashwithfav">
@@ -738,7 +739,7 @@ const Addnewsarticle = () => {
           onChange={handleInputChange}
         />
 
-        <FormControl className="FormControl">
+        {/* <FormControl className="FormControl">
           <InputLabel id="demo-simple-select-helper-label">
             News Priority
           </InputLabel>
@@ -755,7 +756,7 @@ const Addnewsarticle = () => {
             <MenuItem value={"Normal"}>Normal</MenuItem>
             <MenuItem value={"Feature"}>Feature</MenuItem>
           </Select>
-        </FormControl>
+        </FormControl> */}
 
         {/* <Autocomplete
           multiple

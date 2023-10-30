@@ -4,14 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 const Navbar = () => {
-
   const navigate = useNavigate();
   const logout = () => {
     localStorage.clear();
     navigate("/");
   };
-
-
 
   const [agencyDetails, setAgencyDetails] = useState();
 
@@ -34,8 +31,6 @@ const Navbar = () => {
     fetchData();
   }, []);
 
-
-
   return (
     <>
       <ul>
@@ -44,32 +39,46 @@ const Navbar = () => {
             <img
               src={`http://174.138.101.222:8080${agencyDetails.logo_small}`}
               className="newslogo px-2"
-
             />
           )}
           <a href="#">
             <i class="fa fa-home nav-icon"></i>
-            <span class="nav-text"><Link to={"/dashboard"}>
-              <p className="dashboard" style={{ marginTop: "2px", color: "white" }}>MAIN DASHBOARD</p>
-            </Link></span>
+            <span class="nav-text">
+              <Link to={"/dashboard"}>
+                <p
+                  className="dashboard"
+                  style={{ marginTop: "2px", color: "white" }}
+                >
+                  MAIN DASHBOARD
+                </p>
+              </Link>
+            </span>
           </a>
         </li>
 
         <li>
           <a href="#">
             <i class="fa fa-image nav-icon"></i>
-            <span class="nav-text"><Link to={"/Profile"}>
-              <p className="epaper" style={{ marginTop: "2px" }}>UPDATE PROFILE</p>
-            </Link></span>
+            <span class="nav-text">
+              <Link to={"/Profile"}>
+                <p className="epaper" style={{ marginTop: "2px" }}>
+                  UPDATE PROFILE
+                </p>
+              </Link>
+            </span>
           </a>
         </li>
 
         <li>
           <a href="#">
             <i class="fa fa-pen nav-icon"></i>
-            <span class="nav-text"><Link to={"/epaper"}>
-              <p className="epaper" style={{ marginTop: "2px" }}>E-PAPER</p>
-            </Link></span>
+            <span class="nav-text">
+              <Link to={"/epaper"}>
+                <p className="epaper" style={{ marginTop: "2px" }}>
+                  E-PAPER
+                </p>
+              </Link>
+            </span>
           </a>
         </li>
 
@@ -89,7 +98,10 @@ const Navbar = () => {
                 >
                   POST NEWS
                 </p>
-                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="dropdownMenuButton"
+                >
                   <Link to={"/news-approval"} className="dropdown-item">
                     APPROVE NEWS
                   </Link>
@@ -98,7 +110,6 @@ const Navbar = () => {
                   </Link>
                 </div>
               </div>
-
             </span>
           </a>
         </li>
@@ -106,26 +117,30 @@ const Navbar = () => {
         <li>
           <a href="#">
             <i class="fa fa-bell nav-icon"></i>
-            <span class="nav-text"><div className="dropdown dropdowns">
-              <p
-                className=" dropdown-toggle"
-                type="button"
-                id="dropdownMenuButton"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-                style={{ marginTop: "2px" }}
-              >
-                AD MANAGEMENT
-              </p>
-              <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <Link to={"/create-ad"} className="dropdown-item">
-                  CREATE AN AD
-                </Link>
-                <Link to={"/Advertisementlist"} className="dropdown-item">
-                  AD LIST
-                </Link>
-                {/* <a className="dropdown-item" href="#">
+            <span class="nav-text">
+              <div className="dropdown dropdowns">
+                <p
+                  className=" dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  style={{ marginTop: "2px" }}
+                >
+                  AD MANAGEMENT
+                </p>
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="dropdownMenuButton"
+                >
+                  <Link to={"/create-ad"} className="dropdown-item">
+                    CREATE AN AD
+                  </Link>
+                  <Link to={"/Advertisementlist"} className="dropdown-item">
+                    AD LIST
+                  </Link>
+                  {/* <a className="dropdown-item" href="#">
                   AD SETTING
                 </a>
                 <a className="dropdown-item" href="#">
@@ -134,10 +149,30 @@ const Navbar = () => {
                 <a className="dropdown-item" href="#">
                   AD SETTING TOPICS
                 </a> */}
+                </div>
               </div>
-            </div></span>
+            </span>
           </a>
         </li>
+
+
+        <li>
+          <a href="#">
+            <i class="fa   fa-list nav-icon"></i>
+            <span class="nav-text">
+              <div className="dropdown dropdowns">
+                <Link to={"/epapervendorlist"}>
+                  <p className="epaper" style={{ marginTop: "2px" }}>
+                    E-Paper List
+                  </p>
+                </Link>
+              </div>
+            </span>
+          </a>
+        </li>
+
+
+       
 
 
         <li>
@@ -146,7 +181,9 @@ const Navbar = () => {
             <span class="nav-text">
               <div className="dropdown dropdowns">
                 <Link to={"/TemplateSelection"}>
-                  <p className="epaper" style={{ marginTop: "2px" }}>TEMPLATE SELECTION</p>
+                  <p className="epaper" style={{ marginTop: "2px" }}>
+                    TEMPLATE SELECTION
+                  </p>
                 </Link>
               </div>
             </span>
@@ -154,17 +191,18 @@ const Navbar = () => {
         </li>
         <li>
           <a onClick={logout}>
-            <i class="fa fa-sign-out nav-icon" style={{color: "white"}}></i>
+            <i class="fa fa-sign-out nav-icon" style={{ color: "white" }}></i>
             <span class="nav-text">
               <div className="dropdown dropdowns">
                 <Link to={"/TemplateSelection"}>
-                  <p className="epaper" style={{ marginTop: "10px" }}>Logout </p>
+                  <p className="epaper" style={{ marginTop: "10px" }}>
+                    Logout{" "}
+                  </p>
                 </Link>
               </div>
             </span>
           </a>
         </li>
-
       </ul>
     </>
   );
